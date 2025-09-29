@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top-bar">
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="more.html">More</a>
+    </nav>
+  </header>
+
+  <main class="gallery">
+    <section class="panel">
+      <img src="assets/img/evilempire.png" alt="Evil Empire" data-title="Evil Empire" data-desc="Digital creation using various images.">
+    </section>
+    <section class="panel">
+      <img src="assets/img/lights.jpg" alt="Lights" data-title="Lights" data-desc="Acrylic on wood.">
+    </section>
+    <section class="panel">
+      <img src="assets/img/flights.jpg" alt="Artwork 3" data-title="Flights" data-desc="Acrylic on wood.">
+    </section>
+  </main>
+
+  <div id="lightbox">
+    <div class="lightbox-content">
+      <button id="closeBtn">&times;</button>
+      <div class="lightbox-left">
+        <img id="lightbox-img" src="" alt="Artwork">
+      </div>
+      <div class="lightbox-right">
+        <h2 id="lightbox-title">Title</h2>
+        <p id="lightbox-description">Description about the work...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
