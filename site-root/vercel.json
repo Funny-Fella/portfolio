@@ -6,7 +6,7 @@
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/update.html", "destination": "/updates", "permanent": true },
+    { "source": "/updateshtml", "destination": "/updates", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true }
   ]
 }
