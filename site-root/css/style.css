@@ -121,14 +121,24 @@ main.gallery {
   z-index: 10;
 }
 
-/* Responsive adjustments for mobile */
 @media (max-width: 768px) {
-  main.gallery {
-    width: 95%;
+  .lightbox-content {
+    flex-direction: column;
+    max-width: 90%;
+    max-height: 90%;
   }
 
-  .panel img {
-    max-height: none;
-    height: auto;
+  .lightbox-left, .lightbox-right {
+    padding: 10px;
+  }
+
+  .lightbox-left img {
+    max-width: 100%;
+    max-height: 50vh; /* adjust to fit on screen */
+  }
+
+  .lightbox-right {
+    max-height: 50vh;
+    overflow-y: auto;
   }
 }
