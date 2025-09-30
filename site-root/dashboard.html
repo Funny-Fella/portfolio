@@ -72,6 +72,20 @@
     .button { padding: 12px 25px; font-size: 0.9rem; min-width: 100px; }
   }
 </style>
+<script>
+// Helper to read a cookie by name
+function getCookie(name) {
+    const value = "; " + document.cookie;
+    const parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+}
+
+// Redirect immediately if not unlocked
+if (getCookie('dashboardAccess') !== 'true') {
+    window.location.href = 'secret.html';
+}
+</script>
 </head>
 <body>
 
@@ -164,14 +178,10 @@ function typeSecretLine(updates, index = 0) {
 function showBackButtonAndSecret() {
   backContainer.style.opacity = 1;
 
-  // Reveal secret updates if cookie exists
-  if (document.cookie.split(';').some(c => c.trim().startsWith("secretUnlocked="))) {
+  if (getCookie('secretUnlocked') === 'true') {
     secretSection.style.display = "block";
     typeSecretLine(secretUpdates);
   }
-
-  // Set dashboard access cookie
-  document.cookie = "dashboardAccess=true; path=/; max-age=31536000";
 }
 
 // Back button
