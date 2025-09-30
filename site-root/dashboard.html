@@ -56,10 +56,16 @@
   #secret-updates {
     display: none;
     margin-top: 20px;
-    border-top: 1px solid #0f0;
-    padding-top: 20px;
     width: 100%;
     max-width: 800px;
+  }
+
+  hr {
+    width: 100%;
+    max-width: 800px;
+    border: none;
+    border-top: 1px solid #0f0;
+    margin: 20px 0;
   }
 
   @media (max-width: 500px) {
@@ -69,15 +75,19 @@
 </head>
 <body>
 
+<!-- Main terminal above the line -->
 <div id="terminal"></div>
 
+<!-- Horizontal line -->
+<hr>
+
+<!-- Secret Updates Section below the line -->
 <section id="secret-updates">
   <h2>Secret Updates</h2>
   <div id="secret-terminal"></div>
 </section>
 
-<hr> <!-- move the line below secret updates -->
-
+<!-- Back Button -->
 <div class="button-container" id="back-button-container">
   <div class="button" id="back-button">Back to Home</div>
 </div>
@@ -98,9 +108,8 @@ let charIndex = 0;
 
 // Secret updates content
 const secretUpdates = [
-  "System Log: New secret update available.",
-  "Encrypted: Access level granted to user.",
-  "Remember: This is a secret, keep it that way"
+  "System Log: New update.",
+  "Message: This is a secret, so keep it that way. Do not share it with anyone you do not trust.",
 ];
 
 // Function to type lines in main terminal

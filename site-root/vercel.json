@@ -1,12 +1,12 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/updates", "destination": "/updates.html" },
-    { "source": "/about", "destination": "/about.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
   ],
-  "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/updates.html", "destination": "/updates", "permanent": true },
-    { "source": "/about.html", "destination": "/about", "permanent": true }
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
