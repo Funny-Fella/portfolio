@@ -316,3 +316,28 @@ hr {
   }
 }
 
+#updates-link {
+  position: relative; /* to position the badge relative to the link */
+  display: inline-block;
+}
+
+.link-text {
+  display: inline-block;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -6px;       /* slightly above the text */
+  right: -10px;    /* slightly to the right */
+  background: red;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
