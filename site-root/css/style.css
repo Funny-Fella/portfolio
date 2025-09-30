@@ -300,3 +300,19 @@ hr {
   cursor: not-allowed;
   color: #fff;
 }
+
+.secret-dashboard-btn {
+  display: inline-block;
+  margin-bottom: 10px; /* spacing below button */
+  margin-left: auto;
+  margin-right: 0;
+}
+
+@media (max-width: 500px) {
+  .secret-dashboard-btn {
+    margin-top: 8px; /* extra spacing above button on small screens */
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
