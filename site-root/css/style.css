@@ -72,6 +72,92 @@ hr {
   object-fit: contain;
 }
 
+/* Contact Page */
+main.contact {
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 0; /* sharp corners like your style */
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #333;
+}
+
+/* Donations */
+.donations {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd; /* separates from form */
+}
+
+.donations h2 {
+  margin-bottom: 10px;
+}
+
+.donations p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.donate-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.donate-button:hover {
+  background: #333;
+}
+
+
 /* Lightbox */
 #lightbox {
   position: fixed;
