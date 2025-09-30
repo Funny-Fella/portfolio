@@ -288,3 +288,15 @@ hr {
     font-size: 1.5rem;
   }
 }
+
+#secret-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#secret-buttons button:disabled {
+  background: grey;
+  cursor: not-allowed;
+  color: #fff;
+}
