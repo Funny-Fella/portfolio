@@ -21,7 +21,7 @@
     padding: 20px;
   }
 
-  #terminal {
+  #terminal, #secret-terminal {
     max-width: 800px;
     width: 100%;
     margin-bottom: 40px;
@@ -53,6 +53,15 @@
 
   .button:hover { transform: scale(1.05); }
 
+  #secret-updates {
+    display: none;
+    margin-top: 20px;
+    border-top: 1px solid #0f0;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+
   @media (max-width: 500px) {
     .button { padding: 12px 25px; font-size: 0.9rem; min-width: 100px; }
   }
@@ -62,23 +71,39 @@
 
 <div id="terminal"></div>
 
+<section id="secret-updates">
+  <h2>Secret Updates</h2>
+  <div id="secret-terminal"></div>
+</section>
+
+<hr> <!-- move the line below secret updates -->
+
 <div class="button-container" id="back-button-container">
   <div class="button" id="back-button">Back to Home</div>
 </div>
 
 <script>
-// Lines for the terminal
+// Main terminal lines
 const lines = [
-    "Welcome to your Dashboard.",
-    "Nothing here yet!"
+  "Welcome to the Dashboard.",
 ];
 
 const terminal = document.getElementById('terminal');
 const backContainer = document.getElementById('back-button-container');
+const secretSection = document.getElementById('secret-updates');
+const secretTerminal = document.getElementById('secret-terminal');
 
 let lineIndex = 0;
 let charIndex = 0;
 
+// Secret updates content
+const secretUpdates = [
+  "System Log: New secret update available.",
+  "Encrypted: Access level granted to user.",
+  "Remember: This is a secret, keep it that way"
+];
+
+// Function to type lines in main terminal
 function typeLine() {
   if (lineIndex < lines.length) {
     const currentLine = lines[lineIndex];
@@ -98,21 +123,54 @@ function typeLine() {
         setTimeout(typeLine, 500);
       }
     }
-
     typeChar();
   } else {
-    backContainer.style.opacity = 1;
-
-    // Set dashboard access cookie
-    document.cookie = "dashboardAccess=true; path=/; max-age=31536000"; // 1 year
+    showBackButtonAndSecret();
   }
 }
 
-typeLine();
+// Function to type secret updates
+function typeSecretLine(updates, index = 0) {
+  if (index < updates.length) {
+    const lineDiv = document.createElement('div');
+    lineDiv.classList.add('line');
+    secretTerminal.appendChild(lineDiv);
+    lineDiv.style.opacity = 1;
 
+    let charIdx = 0;
+    function typeChar() {
+      if (charIdx < updates[index].length) {
+        lineDiv.textContent += updates[index][charIdx];
+        charIdx++;
+        setTimeout(typeChar, 50);
+      } else {
+        setTimeout(() => typeSecretLine(updates, index + 1), 400);
+      }
+    }
+    typeChar();
+  }
+}
+
+// Show back button and secret updates
+function showBackButtonAndSecret() {
+  backContainer.style.opacity = 1;
+
+  // Reveal secret updates if cookie exists
+  if (document.cookie.split(';').some(c => c.trim().startsWith("secretUnlocked="))) {
+    secretSection.style.display = "block";
+    typeSecretLine(secretUpdates);
+  }
+
+  // Set dashboard access cookie
+  document.cookie = "dashboardAccess=true; path=/; max-age=31536000";
+}
+
+// Back button
 document.getElementById('back-button').addEventListener('click', () => {
   window.location.href = 'index.html';
 });
+
+typeLine();
 </script>
 
 </body>
