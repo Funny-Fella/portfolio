@@ -250,7 +250,6 @@ main.contact {
   z-index: 10;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   main.blog, main.gallery, main.contact {
     width: 95%;
@@ -266,13 +265,16 @@ main.contact {
   }
 
   .nav-links {
-    gap: 15px;          /* reduce gap between links */
-    flex-wrap: wrap;     /* allow wrapping if needed */
+    gap: 10px;               /* smaller gap */
+    flex-wrap: nowrap;        /* prevent wrapping */
     justify-content: center;
+    overflow-x: auto;         /* allow horizontal scrolling if necessary */
   }
 
   .nav-links a {
-    margin: 0;           /* remove extra margins */
+    margin: 0;
+    font-size: 0.9rem;        /* slightly smaller text */
+    white-space: nowrap;      /* prevent line breaks in links */
   }
 
   .lightbox-content {
