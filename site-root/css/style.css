@@ -181,7 +181,6 @@ main.contact {
   background: #333;
 }
 
-
 /* Lightbox */
 #lightbox {
   position: fixed;
@@ -253,16 +252,28 @@ main.contact {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  main.blog, main.gallery {
+  main.blog, main.gallery, main.contact {
     width: 95%;
-    padding: 30px 20px;
+    padding: 30px 15px;
   }
 
-@media (max-width: 768px) {
   .logo {
     display: none;
   }
-}
+
+  .top-bar {
+    padding: 15px 15px; /* reduce side padding */
+  }
+
+  .nav-links {
+    gap: 15px;          /* reduce gap between links */
+    flex-wrap: wrap;     /* allow wrapping if needed */
+    justify-content: center;
+  }
+
+  .nav-links a {
+    margin: 0;           /* remove extra margins */
+  }
 
   .lightbox-content {
     flex-direction: column;
@@ -284,5 +295,13 @@ main.contact {
     top: 5px;
     right: 5px;
     font-size: 1.5rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
   }
 }
