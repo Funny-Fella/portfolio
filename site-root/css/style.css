@@ -4,9 +4,6 @@ body {
   font-family: 'Inconsolata', monospace;
   background-color: #f7f7f7;
 }
-.nav-links a.logo {
-  justify-content: left !important;
-}
 
 html {
   overflow-y: scroll;
@@ -28,6 +25,7 @@ html {
 .logo {
   position: absolute;
   left: 50px;
+  font-weight: bold;
 }
 
 .nav-links {
@@ -37,14 +35,12 @@ html {
   justify-content: center;
 }
 
-.spacer {
-  width: 1rem;
-}
-
 .nav-links a {
   margin: 0 15px;
   text-decoration: none;
   color: #000;
+  font-size: clamp(0.8rem, 2.5vw, 1rem); /* scales with viewport */
+  white-space: nowrap;
 }
 
 .nav-links a.active {
@@ -52,11 +48,11 @@ html {
 }
 
 /* White stripe for main content */
-main.blog, main.gallery {
+main.blog, main.gallery, main.contact {
   width: 80%;
   margin: 0 auto;
-  background-color: #fff;  /* white stripe */
-  padding: 40px 30px;      /* space inside stripe */
+  background-color: #fff;
+  padding: 40px 30px;
   box-sizing: border-box;
 }
 
@@ -97,14 +93,6 @@ hr {
 }
 
 /* Contact Page */
-main.contact {
-  width: 80%;
-  margin: 0 auto;
-  background: #fff;
-  padding: 40px 20px;
-  box-sizing: border-box;
-}
-
 .contact-title {
   text-align: center;
   margin-bottom: 30px;
@@ -126,7 +114,7 @@ main.contact {
   border: 1px solid #ccc;
   font-family: inherit;
   font-size: 1rem;
-  border-radius: 0; /* sharp corners like your style */
+  border-radius: 0;
   margin-bottom: 20px;
   width: 100%;
   box-sizing: border-box;
@@ -152,7 +140,7 @@ main.contact {
   text-align: center;
   margin-top: 40px;
   padding-top: 20px;
-  border-top: 1px solid #ddd; /* separates from form */
+  border-top: 1px solid #ddd;
 }
 
 .donations h2 {
@@ -250,31 +238,32 @@ main.contact {
   z-index: 10;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   main.blog, main.gallery, main.contact {
     width: 95%;
-    padding: 30px 15px;
-  }
-
-  .logo {
-    display: none;
+    padding: 20px;
   }
 
   .top-bar {
-    padding: 15px 15px; /* reduce side padding */
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    position: relative;
+    left: 0;
   }
 
   .nav-links {
-    gap: 10px;               /* smaller gap */
-    flex-wrap: nowrap;        /* prevent wrapping */
+    gap: 8px;
+    flex-wrap: nowrap;
     justify-content: center;
-    overflow-x: auto;         /* allow horizontal scrolling if necessary */
   }
 
   .nav-links a {
-    margin: 0;
-    font-size: 0.9rem;        /* slightly smaller text */
-    white-space: nowrap;      /* prevent line breaks in links */
+    margin: 0 5px;
+    font-size: clamp(0.7rem, 4vw, 1rem);
   }
 
   .lightbox-content {
@@ -297,13 +286,5 @@ main.contact {
     top: 5px;
     right: 5px;
     font-size: 1.5rem;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
   }
 }
