@@ -1,19 +1,18 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
-  ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/updates", "destination": "/updates.html" },
-    { "source": "/about", "destination": "/about.html" }
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/secret", "destination": "/secret.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/contact", "destination": "/contact.html" }
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/updates.html", "destination": "/updates", "permanent": true },
-    { "source": "/about.html", "destination": "/about", "permanent": true }
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/secret.html", "destination": "/secret", "permanent": true },
+    { "source": "/dashboard.html", "destination": "/dashboard", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true }
   ]
 }
