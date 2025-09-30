@@ -172,6 +172,12 @@ hr {
     padding: 30px 20px;
   }
 
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
+
   .lightbox-content {
     flex-direction: column;
     max-width: 95%;
