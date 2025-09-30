@@ -4,6 +4,13 @@ body {
   font-family: 'Inconsolata', monospace;
   background-color: #f7f7f7;
 }
+.nav-links a.logo {
+  justify-content: left !important;
+}
+
+html {
+  overflow-y: scroll;
+}
 
 /* Top bar */
 .top-bar {
@@ -12,9 +19,26 @@ body {
   background: #fff;
   padding: 15px 50px;
   display: flex;
-  justify-content: center;
+  align-items: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 100;
+  justify-content: space-between;
+}
+
+.logo {
+  position: absolute;
+  left: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.spacer {
+  width: 1rem;
 }
 
 .nav-links a {
@@ -233,6 +257,12 @@ main.contact {
     width: 95%;
     padding: 30px 20px;
   }
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
 
   .lightbox-content {
     flex-direction: column;
