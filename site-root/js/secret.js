@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = Array.from(buttonsContainer.querySelectorAll('button'));
   const message = document.getElementById('secret-message');
 
-  const correctSequence = ['1', '2', '3', '4']; // set your sequence
+  const correctSequence = ['3', '4', '1', '2']; // set your sequence
   const cookieName = 'secretUnlocked';
   const dashboardCookie = 'dashboardAccess';
 
