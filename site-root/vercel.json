@@ -4,7 +4,7 @@
     { "source": "/updates", "destination": "/updates.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/secret", "destination": "/secret.html" },
-    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/hdjijwkkcklqbdhhbei", "destination": "/dashboard.html" },
     { "source": "/contact", "destination": "/contact.html" }
   ],
   "redirects": [
@@ -12,7 +12,7 @@
     { "source": "/updates.html", "destination": "/updates", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/secret.html", "destination": "/secret", "permanent": true },
-    { "source": "/dashboard.html", "destination": "/dashboard", "permanent": true },
+    { "source": "/dashboard.html", "destination":  "hdjijwkkcklqbdhhbei", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true }
   ]
 }
