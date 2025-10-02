@@ -31,6 +31,7 @@
     margin-bottom: 0.5em;
     white-space: pre-wrap;
     opacity: 0;
+    transition: opacity 0.2s ease-in;
   }
 
   .button-container {
@@ -66,6 +67,8 @@
     border: none;
     border-top: 1px solid #0f0;
     margin: 20px 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
   }
 
   @media (max-width: 500px) {
@@ -110,6 +113,7 @@ if (getCookie('dashboardAccess') !== 'true') {
 // Main terminal lines
 const lines = [
   "Welcome to the Dashboard.",
+  
 ];
 
 const terminal = document.getElementById('terminal');
@@ -118,62 +122,57 @@ const secretSection = document.getElementById('secret-updates');
 const secretTerminal = document.getElementById('secret-terminal');
 
 let lineIndex = 0;
-let charIndex = 0;
 
-// Secret updates content
+// Secret updates content (use "<hr>" for dividers)
 const secretUpdates = [
-  "System Log: New update.",
-  "",
-  "Message: This is a secret, so keep it that way. Do not share it with anyone you do not trust.",
-  "",
-  "Your Task: Contact me and repeat the passphrase 'Start The Machine'",
+  "<hr>",
+  "System Log: 30/9/25",
+  "   Your Task: Contact me and repeat the passphrase 'Start The Machine'",
+  "<hr>",
+  "System Log: 2/10/25",
+  "   More messages will appear here over time, keep in tune",
+  "<hr>",
 ];
 
-// Function to type lines in main terminal
-function typeLine() {
+// Function to show lines in main terminal
+function showLines() {
   if (lineIndex < lines.length) {
-    const currentLine = lines[lineIndex];
     const div = document.createElement('div');
     div.classList.add('line');
+    div.textContent = lines[lineIndex];
     terminal.appendChild(div);
-    div.style.opacity = 1;
 
-    function typeChar() {
-      if (charIndex < currentLine.length) {
-        div.textContent += currentLine[charIndex];
-        charIndex++;
-        setTimeout(typeChar, 50);
-      } else {
-        charIndex = 0;
-        lineIndex++;
-        setTimeout(typeLine, 500);
-      }
-    }
-    typeChar();
+    requestAnimationFrame(() => {
+      div.style.opacity = 1;
+    });
+
+    lineIndex++;
+    setTimeout(showLines, 200); // delay between lines
   } else {
     showBackButtonAndSecret();
   }
 }
 
-// Function to type secret updates
-function typeSecretLine(updates, index = 0) {
+// Function to show secret updates (supports <hr>)
+function showSecretLines(updates, index = 0) {
   if (index < updates.length) {
-    const lineDiv = document.createElement('div');
-    lineDiv.classList.add('line');
-    secretTerminal.appendChild(lineDiv);
-    lineDiv.style.opacity = 1;
+    let lineEl;
 
-    let charIdx = 0;
-    function typeChar() {
-      if (charIdx < updates[index].length) {
-        lineDiv.textContent += updates[index][charIdx];
-        charIdx++;
-        setTimeout(typeChar, 50);
-      } else {
-        setTimeout(() => typeSecretLine(updates, index + 1), 400);
-      }
+    if (updates[index] === "<hr>") {
+      lineEl = document.createElement('hr');
+    } else {
+      lineEl = document.createElement('div');
+      lineEl.classList.add('line');
+      lineEl.textContent = updates[index];
     }
-    typeChar();
+
+    secretTerminal.appendChild(lineEl);
+
+    requestAnimationFrame(() => {
+      lineEl.style.opacity = 1;
+    });
+
+    setTimeout(() => showSecretLines(updates, index + 1), 200);
   }
 }
 
@@ -183,7 +182,7 @@ function showBackButtonAndSecret() {
 
   if (getCookie('secretUnlocked') === 'true') {
     secretSection.style.display = "block";
-    typeSecretLine(secretUpdates);
+    showSecretLines(secretUpdates);
   }
 }
 
@@ -192,8 +191,10 @@ document.getElementById('back-button').addEventListener('click', () => {
   window.location.href = 'index.html';
 });
 
-typeLine();
+// Start
+showLines();
 </script>
 
 </body>
 </html>
+
